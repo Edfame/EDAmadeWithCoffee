@@ -15,7 +15,7 @@ public class ArrayStack<AnyType> implements Stack<AnyType> {
 
     @Override
     public void push(AnyType o){
-        if (size() == this.size())
+        if (topPos == this.size())
             throw new RuntimeException("above the size");
         anyTypes[topPos] = o;
         topPos++;
@@ -44,5 +44,17 @@ public class ArrayStack<AnyType> implements Stack<AnyType> {
         if (topPos == 0)
             return true;
         return false;
+    }
+
+    public String toString(){
+        String finalText = "";
+
+        for (AnyType anyType: anyTypes){
+            if (anyType == null)
+                break;
+            finalText += anyType.toString() + " ";
+        }
+
+        return finalText;
     }
 }
